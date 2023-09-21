@@ -16,14 +16,25 @@ header {
 h1 {
     margin: 0;
 }
-/* slider */
-.carousel-inner{
-    height: 80vh;
+img{
+    max-width:100%; /*不使用width:100% 是因避免圖片解析度不好，隨父元素被放大時會糊掉*/
+    height:auto;
+}
+/* home_img */
+.home_img{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    /* display: fixed; */
+    top:0;
+    left:0;
+    justify-content: center;
     align-items: center;
     display: flex;
-
 }
-
+.w-100 {
+    width: 100%!important;
+}
 /* 照片集樣式 */
 #photo-gallery {
     display: flex;
