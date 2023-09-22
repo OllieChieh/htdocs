@@ -5,14 +5,14 @@ body {
     margin: 0;
     padding: 0;
 }
-
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+header, div {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
 }
-
 h1 {
     margin: 0;
 }
@@ -20,21 +20,174 @@ img{
     max-width:100%; /*不使用width:100% 是因避免圖片解析度不好，隨父元素被放大時會糊掉*/
     height:auto;
 }
-/* home_img */
-.home_img{
-    height: 100vh;
+a {
+    cursor: pointer;
+    text-decoration: none !important;
+}
+ol, ul {
+    list-style: none;
+}
+
+body:not(.responsive) .site-root {
+    min-width: var(--site-width);
     width: 100%;
-    overflow: hidden;
-    /* display: fixed; */
-    top:0;
-    left:0;
-    justify-content: center;
-    align-items: center;
+}
+/* menu */
+.site-root{
+    margin: 0 auto;
+    min-height: 100%;
+    position: relative;
+    top: 0;
+}
+.SITE_HEADER_WRAPPER{
+    position: relative;
+    grid-area: 1/1/2/2;
+}
+.site-header{
+    position: fixed !important;
+    /* margin-top: var(--wix-ads-height); */
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+    min-width: 980px;
+    z-index: calc(var(--pinned-layers-in-page, 0) + 51);
+    --above-all-in-container: 10000;
+}
+.header-container-outer{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.header-container-inner{
+    position: relative;
+    width: 100%;
+    position: static;
+    display: grid;
+    height: auto;
+    width: 100%;
+    min-height: auto;
+    grid-template-rows: 1fr;
+    grid-template-columns: 100%;
+}
+.header-logo{
+    position: relative;
+    margin: 51px 0px 40px calc((100% - 980px) * 0.5);
+    left: 2px;
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: start;
+    align-self: start;
+    width: 113px;
+    height: auto;
+    letter-spacing: 0.05em;
+    font-size: 24px;
+    line-height: normal;    
+}
+.logo{
+    color: rgb(250,250,250);
+    font-weight: 500;
+}
+.header-list-container{
+    width: 609px;
+    position: relative;
+    margin: 48px 0px 37px calc((100% - 980px) * 0.5);
+    left: 371px;
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: start;
+    align-self: start;
+    --is-animated: 1;
+    --position-box-z-index: 47;
+    --menu-flex-wrap: wrap;
+    --subsubmenu-box-display: none;
+    --subsubmenu-box-position: absolute;
+    --white-space: nowrap;
+    --label-word-wrap: normal;
+    height: auto;
+    max-height: unset;
+}
+.header-list{
+    padding: 0;
+    border: 0 solid #ccc;
+    border-radius: 0;
+    padding-right: 0;
+    padding-left: 0;
+    background: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
     display: flex;
+    height: 100%;
+    width: 100%;
 }
-.w-100 {
-    width: 100%!important;
+.menu-list{
+    direction: ltr;
+    width: calc(100% + 8px);
+    margin-left: -4px;
+    margin-right: -4px;
+    height: calc(100% + 8px);
+    margin-top: -4px;
+    margin-bottom: -4px;
+    flex-grow: unset;
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: var(--menu-flex-wrap,wrap);
+    min-width: -moz-fit-content;
+    min-width: fit-content;
 }
+.menu-list a{
+    padding: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border: 0 solid #ccc;
+    border-radius: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background: rgba(247, 247, 247, 0);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: #414141;    
+}
+.menu-list a:hover,
+.menu-list a:active{
+    color: #8F6B54;
+}
+/* master-page */
+#master-page{
+    -ms-grid-rows: max-content max-content min-content max-content;
+    -ms-grid-columns: 100%;
+    align-items: start;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content min-content max-content;
+    justify-content: stretch;
+}
+/* home-photo */
+.pro-gallery{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    justify-content: center;
+    text-align: center;
+}
+/* .pro-gallery-inner-container{
+    margin
+} */
+
+
+
+
+
+
 /* 照片集樣式 */
 #photo-gallery {
     display: flex;
